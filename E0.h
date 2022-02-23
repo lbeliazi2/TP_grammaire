@@ -1,7 +1,9 @@
 
-#include "Etat.h"
+#ifndef GL_TD_ETAT_0
+#define GL_TD_ETAT_0
 
-class Automate;
+#include "Etat.h"
+#include "Automate.h";
 
 class E0 : public Etat {
   public:
@@ -10,3 +12,4 @@ class E0 : public Etat {
     void print() const;
     bool transition(Automate *automate, Symbole *s);
 };
+#endif //GL_TD_ETAT_0

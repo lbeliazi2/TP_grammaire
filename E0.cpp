@@ -1,14 +1,15 @@
 #include "E0.h"
+#include "E1.h"
+#include "E2.h"
+#include "E3.h"
 #include <string>
 #include "Symbole.h"
 #include "Automate.h"
 
 E0::E0(const string name) : Etat(name) {
-
 }
 
 E0::~E0() {
-
 }
 
 void E0::print() const {
@@ -22,30 +23,26 @@ bool E0::transition(Automate *automate, Symbole *s) {
     this->print();
     
     switch(*s) {
-      case "EXPR":
+      case EXPR:
       // si on a E on décale à l'état 1
         automate->decalage(s, new E1("etat1"));
         cout << "Décalage de l'etat0 à l'etat1";
-        return true;
         break;
-      case "OUVREPAR":
+      case OPENPAR:
       // si on a ( on fait d2
         automate->decalage(s, new E2("etat2"));
-        cout << "Décalage de l'etat1 à l'etat2";
-        return true;
+        cout << "Décalage de l'etat0 à l'etat2";
         break;
-      case "INT":
+      case INT:
       // si on a une val on fait d3
         automate->decalage(s, new E3("etat3"));
-        cout << "Décalage de l'etat1 à l'etat2";
-        return true;
+        cout << "Décalage de l'etat0 à l'etat3";
         break;
       default:
       // 0 transition effectuée donc false
         return false;
     }
+    return true;
 
         
-    }
-    
 }

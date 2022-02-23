@@ -1,10 +1,17 @@
-#include "automate.h"
+#ifndef GL_TD_ETAT_H
+#define GL_TD_ETAT_H
+#include <iostream> // pour pouvoir faire cout
+#include "Automate.h"
+#include <string>
+#include "Symbole.h"
+
 class Etat {
 public:
-    Etat(string name);
+    Etat(const string &name);
     virtual ~Etat();
-    void print() const;
-    virtual bool transition(Automate & automate, Symbole * s) = 0;
+    virtual void print() const;
+    virtual bool transition(Automate * automate, Symbole * s) = 0;
 protected:
     string name;
-}
+};
+#endif // GL_TD_ETAT_H
