@@ -1,9 +1,16 @@
 #include "Automate.h"
+#include "E0.h"
 
 // remplir le vecteur d'etat avec tous les etats et le tas de symboles avec tous les symboles??
-Automate::Automate() : {}
+Automate::Automate(string chaine) {
+  lexer = new Lexer(chaine);
+  
+  Etat *etat0 = new E0("etat0");
+  statestack.push_back(etat0);
+}
 
 Automate::~Automate() {
+    delete lexer;
 }
 
 void Automate::decalage (Symbole * s, Etat *e) {

@@ -4,7 +4,7 @@
 #include "lexer.h"
 class Automate {
 public:
-    Automate();
+    Automate(string chaine);
     virtual ~Automate();
     void decalage (Symbole * s, Etat *e);
     void reduction (int n, Symbole * s);
